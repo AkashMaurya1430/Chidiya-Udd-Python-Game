@@ -3,8 +3,6 @@ import time
 import sqlite3
 import random
 
-a = ["cat", "dog", "bakri", "google", "python", "bitch"]
-i = 0
 
 # colors
 BLACK = (0, 0, 0)
