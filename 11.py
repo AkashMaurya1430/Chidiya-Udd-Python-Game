@@ -2,6 +2,7 @@ import pygame
 import time
 import sqlite3
 import random
+from threading import Thread
 
 
 # colors
@@ -63,7 +64,8 @@ clicked = False
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 screen.fill(WHITE)
-fetch_data()
+t1 = Thread(target=fetch_data)
+t1.start()
 draw_score(screen, 160, 450, score)
 
 #-----Main Program-----#
@@ -80,7 +82,7 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        elif event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 clicked = True
                 # check_score()
